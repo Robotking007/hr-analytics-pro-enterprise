@@ -21,12 +21,13 @@ CREATE TABLE IF NOT EXISTS public.employees (
 -- 2. Create performance_reviews table
 CREATE TABLE IF NOT EXISTS public.performance_reviews (
     id SERIAL PRIMARY KEY,
-    employee_id INTEGER REFERENCES public.employees(id),
+    employee_id INTEGER NOT NULL REFERENCES public.employees(id) ON DELETE CASCADE,
     review_date DATE NOT NULL,
     performance_score DECIMAL(3,2),
     goals_met INTEGER,
     feedback TEXT,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- 3. Insert sample employee data
@@ -69,3 +70,46 @@ CREATE POLICY "Enable read access for all users" ON public.performance_reviews F
 CREATE POLICY "Enable insert access for all users" ON public.performance_reviews FOR INSERT WITH CHECK (true);
 CREATE POLICY "Enable update access for all users" ON public.performance_reviews FOR UPDATE USING (true);
 CREATE POLICY "Enable delete access for all users" ON public.performance_reviews FOR DELETE USING (true);
+
+-- 7. Constraints to keep data clean (optional but recommended)
+-- Ensure performance_score values are within a reasonable range (0 - 10)
+ALTER TABLE public.employees
+    ADD CONSTRAINT employees_performance_score_range
+    CHECK (performance_score IS NULL OR (performance_score >= 0 AND performance_score <= 10));
+
+ALTER TABLE public.performance_reviews
+    ADD CONSTRAINT reviews_performance_score_range
+    CHECK (performance_score IS NULL OR (performance_score >= 0 AND performance_score <= 10));
+
+-- Ensure goals_met is a percentage (0 - 100)
+ALTER TABLE public.performance_reviews
+    ADD CONSTRAINT reviews_goals_met_range
+    CHECK (goals_met IS NULL OR (goals_met >= 0 AND goals_met <= 100));
+
+-- 8. Trigger function to auto-update updated_at
+CREATE OR REPLACE FUNCTION public.set_updated_at()
+RETURNS trigger
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$;
+
+-- 9. Triggers to maintain updated_at
+CREATE TRIGGER set_employees_updated_at
+BEFORE UPDATE ON public.employees
+FOR EACH ROW
+EXECUTE FUNCTION public.set_updated_at();
+
+CREATE TRIGGER set_performance_reviews_updated_at
+BEFORE UPDATE ON public.performance_reviews
+FOR EACH ROW
+EXECUTE FUNCTION public.set_updated_at();
+
+-- 10. Helpful indexes
+CREATE INDEX IF NOT EXISTS idx_employees_department ON public.employees(department);
+CREATE INDEX IF NOT EXISTS idx_employees_position ON public.employees(position);
+CREATE INDEX IF NOT EXISTS idx_reviews_employee_id ON public.performance_reviews(employee_id);
+CREATE INDEX IF NOT EXISTS idx_reviews_review_date ON public.performance_reviews(review_date);
