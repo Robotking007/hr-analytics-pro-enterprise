@@ -120,7 +120,7 @@ class TimeAttendanceManager:
         y = features_df['is_absent']
         
         # Train XGBoost model
-        model = xgb.XGBClassifier(random_state=42, eval_metric='logloss')
+        model = GradientBoostingClassifier(random_state=42)
         model.fit(X, y)
         
         # Predict for next week
