@@ -1,0 +1,46 @@
+# Minimal requirements without TensorFlow for Windows compatibility
+# Core ML and Data Science (no TensorFlow)
+scikit-learn>=1.3.0
+pandas>=2.0.0
+numpy>=1.24.0,<2.0.0
+scipy>=1.11.0
+xgboost>=1.7.0
+lightgbm>=4.0.0
+
+# Explainable AI
+shap>=0.42.0
+lime>=0.2.0
+
+# Data Processing
+pyarrow>=6.0,<13
+
+# Visualization
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Web Framework
+streamlit>=1.25.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Database and Backend
+supabase>=1.0.0
+psycopg2-binary>=2.9.0
+
+# Authentication and Security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.0
+python-multipart>=0.0.6
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
+loguru>=0.7.0
+click>=8.1.0
+tqdm>=4.66.0
+
+# Development
+pytest>=7.4.0

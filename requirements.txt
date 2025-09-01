@@ -1,0 +1,107 @@
+# Core ML and Data Science
+scikit-learn>=1.3.0
+streamlit>=1.28.0
+numpy>=1.24.0
+plotly>=5.15.0
+scipy>=1.11.0
+xgboost>=1.7.0
+lightgbm>=4.0.0
+streamlit>=1.28.0
+pandas>=2.0.0
+plotly>=5.15.0
+supabase>=1.0.0
+python-dotenv>=1.0.0
+PyJWT>=2.8.0
+bcrypt>=4.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+seaborn>=0.12.0
+scipy>=1.11.0
+
+# Explainable AI
+shap>=0.42.0
+lime>=0.2.0
+
+# Bias and Fairness
+fairlearn>=0.9.0
+aif360>=0.5.0
+
+# Data Processing
+qrcode>=7.4.2
+pyotp>=2.8.0
+Pillow>=10.0.0
+
+# Payroll & Benefits Management
+prophet>=1.1.4
+lightfm>=1.17
+ollama>=0.1.7
+apscheduler>=3.10.0
+reportlab>=4.0.0
+fpdf2>=2.7.0
+
+# Time & Attendance + Talent Management
+xgboost>=1.7.0
+# sentence-transformers>=2.2.0  # Commented out due to TensorFlow conflicts
+spacy>=3.6.0
+holidays>=0.34
+
+# Learning & Development + Recruitment
+PyPDF2>=3.0.0
+python-docx>=0.8.11
+# textract==1.6.4  # Commented out - deployment issue
+nltk>=3.8
+
+# Employee Engagement + Compliance
+vaderSentiment>=3.3.2
+wordcloud>=1.9.0
+
+# Workflow Automation + Advanced Analytics
+networkx>=3.1
+shap>=0.42.0
+lime>=0.2.0.1
+slack-sdk>=3.21.0
+APScheduler>=3.10.0
+polars>=0.18.0
+dask>=2023.8.0
+pyarrow>=6.0,<13
+
+# Visualization
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+bokeh>=3.2.0
+
+# Web Framework
+streamlit>=1.25.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+
+# Database and Backend
+supabase>=1.0.0
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+alembic>=1.11.0
+
+# Authentication and Security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.0
+python-multipart>=0.0.6
+
+# Monitoring and Logging
+mlflow>=2.5.0
+wandb>=0.15.0
+loguru>=0.7.0
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
+httpx>=0.24.0
+click>=8.1.0
+tqdm>=4.66.0
+
+# Development
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0

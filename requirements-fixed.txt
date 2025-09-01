@@ -1,0 +1,64 @@
+# Core ML and Data Science
+scikit-learn>=1.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+xgboost>=1.7.0
+lightgbm>=4.0.0
+tensorflow>=2.13.0
+torch>=2.0.0
+transformers>=4.30.0
+
+# Explainable AI
+shap>=0.42.0
+lime>=0.2.0
+
+# Bias and Fairness
+fairlearn>=0.9.0
+aif360>=0.5.0
+
+# Data Processing
+polars>=0.18.0
+dask>=2023.8.0
+pyarrow>=6.0,<13
+
+# Visualization
+plotly>=5.15.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+bokeh>=3.2.0
+
+# Web Framework
+streamlit>=1.25.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+pydantic>=2.0.0
+
+# Database and Backend
+supabase>=1.0.0
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+alembic>=1.11.0
+
+# Authentication and Security
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.0
+python-multipart>=0.0.6
+
+# Monitoring and Logging
+mlflow>=2.6.0
+wandb>=0.15.0
+loguru>=0.7.0
+
+# Utilities
+python-dotenv>=1.0.0
+requests>=2.31.0
+httpx>=0.24.0
+click>=8.1.0
+tqdm>=4.66.0
+
+# Development
+pytest>=7.4.0
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.5.0

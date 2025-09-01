@@ -1,0 +1,17 @@
+{
+  "name": "hr-analytics-pro-enterprise",
+  "version": "1.0.0",
+  "description": "Enterprise HR Analytics Platform with AI-powered insights",
+  "main": "main_enterprise.py",
+  "scripts": {
+    "start": "streamlit run main_enterprise.py",
+    "build": "echo 'Streamlit app - no build required'",
+    "install": "pip install -r requirements.txt"
+  },
+  "keywords": ["hr", "analytics", "enterprise", "ai", "streamlit"],
+  "author": "HR Analytics Team",
+  "license": "MIT",
+  "engines": {
+    "python": ">=3.9"
+  }
+}

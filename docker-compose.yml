@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  hr-analytics-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+    volumes:
+      - ./logs:/app/logs
+      - ./models:/app/models
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
+
+  hr-analytics-dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+    volumes:
+      - ./logs:/app/logs
+    command: streamlit run src/dashboard/main.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - hr-analytics-api

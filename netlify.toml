@@ -1,0 +1,12 @@
+[build]
+  command = "echo 'Streamlit app - no build required'"
+  publish = "."
+
+[build.environment]
+  PYTHON_VERSION = "3.9"
+
+[[functions]]
+  directory = "."
+  
+[context.production.environment]
+  NODE_ENV = "production"
