@@ -9,7 +9,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta, time
 from sklearn.ensemble import IsolationForest
-import xgboost as xgb
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import LabelEncoder
 import holidays
 import warnings
