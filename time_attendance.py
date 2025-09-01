@@ -11,13 +11,20 @@ from datetime import datetime, timedelta, time
 from sklearn.ensemble import IsolationForest
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import LabelEncoder
-import holidays
+# Optional dependency: holidays (guarded)
+try:
+    import holidays as holidays_pkg
+    HOLIDAYS_AVAILABLE = True
+except Exception:
+    holidays_pkg = None  # type: ignore
+    HOLIDAYS_AVAILABLE = False
 import warnings
 warnings.filterwarnings('ignore')
 
 class TimeAttendanceManager:
     def __init__(self):
-        self.us_holidays = holidays.US()
+        # Use US holidays if available; otherwise, empty set
+        self.us_holidays = holidays_pkg.US() if HOLIDAYS_AVAILABLE else set()
         self.shift_types = {
             'morning': {'start': time(9, 0), 'end': time(17, 0), 'hours': 8},
             'evening': {'start': time(17, 0), 'end': time(1, 0), 'hours': 8},
