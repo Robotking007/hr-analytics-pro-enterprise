@@ -12,7 +12,7 @@ shap>=0.42.0
 lime>=0.2.0
 
 # Data Processing
-pyarrow>=6.0,<13
+pyarrow>=6.0,<22
 
 # Visualization
 plotly>=5.15.0

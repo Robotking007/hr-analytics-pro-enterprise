@@ -63,7 +63,7 @@ slack-sdk>=3.21.0
 APScheduler>=3.10.0
 polars>=0.18.0
 dask>=2023.8.0
-pyarrow>=6.0,<13
+pyarrow>=6.0,<22
 
 # Visualization
 plotly>=5.15.0
